@@ -8,12 +8,9 @@
 
   <div class="col-8">
 
-        <form action="{{ route('') }}" method="POST"  enctype="multipart/form-data>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Title</label>
-                  <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add Title">
+        <form action="{{ route('ad.store') }} " method="POST"  enctype="multipart/form-data">
+            {{ csrf_field() }}
 
-                </div>
 
                 <div class="form-group">
                         <label for="exampleInputEmail1">Item Name</label>
@@ -29,7 +26,7 @@
                                 <select id="inputState" class="form-control">
                                     <option selected>Choose Region</option>
                                     @foreach ($regions as $region)
-                                    <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                    <option name="region" value="{{ $region->id }}">{{ $region->name }}</option>
                                   @endforeach
 
                                 </select>
@@ -44,7 +41,7 @@
                                 <select id="inputState" class="form-control">
                                     <option selected>Choose Category</option>
                                     @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option name='category'value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
 
 
@@ -80,33 +77,33 @@
 
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Price</label>
+                  <label for="exampleInputPassword1">Phone</label>
                   <input name="phone" type="number" class="form-control" id="exampleInputPassword1" placeholder="Price">
                 </div>
 
 
 
                 <div class="form-group">
-                        <label for="exampleInputPassword1">Phone</label>
-                        <input name="phone" type="number" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input name="price" type="number" class="form-control" id="exampleInputPassword1" placeholder="Price">
                 </div>
 
 
                 <div class="form-group">
                         <label for="exampleFormControlFile1">Image</label>
-                        <input name="" type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input name="image1" type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
 
 
                 <div class="form-group">
                         <label for="exampleFormControlFile1">Image</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input name="image2" type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
 
 
                 <div class="form-group">
                         <label for="exampleFormControlFile1">Image</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input name="image3" type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
 
 

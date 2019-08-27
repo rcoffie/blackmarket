@@ -7,6 +7,7 @@ use App\Category;
 use App\Region;
 use session;
 use App\User;
+use Image;
 
 use Illuminate\Http\Request;
 
@@ -45,7 +46,7 @@ class AdController extends Controller
 
         $ad = New Ad;
 
-       $ad->title = $request->input('title');
+
        $ad->item_name = $request->input('item_name');
        $ad->phone    = $request->input('phone');
        $ad->price   = $request->input('description');
@@ -56,7 +57,43 @@ class AdController extends Controller
        $ad->price     = $request->input('price');
        $ad->user_id    = auth()->id();
 
+       // storing image1
+       if($request->hasfile('image1')){
+           $image = $request->file('image1');
+           $filename = time().'.'.$image->getClientOriginalExtension();
+           $location = public_path('images/'.$filename);
+           image::make($image)->resize(800,400)->save($location);
+           $ad->image1 = $filename;
+       }
 
+
+      // Storing image2
+       if($request->hasfile('image2')){
+        $image = $request->file('image2');
+        $filename = time().'.'.$image->getClientOriginalExtension();
+        $location = public_path('images/'.$filename);
+        image::make($image)->resize(800,400)->save($location);
+        $ad->image2 = $filename;
+    }
+
+
+
+    //storing image 3
+
+    if($request->hasfile('image1')){
+        $image = $request->file('image3');
+        $filename = time().'.'.$image->getClientOriginalExtension();
+        $location = public_path('images/'.$filename);
+        image::make($image)->resize(800,400)->save($location);
+        $ad->image3 = $filename;
+    }
+
+
+
+
+         return $ad;
+
+       // $ad->save();
 
 
     }

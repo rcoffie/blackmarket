@@ -16,7 +16,6 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('title');
             $table->string('item_name');
             $table->integer('category_id');
             $table->string('region_id');
@@ -27,7 +26,7 @@ class CreateAdsTable extends Migration
             $table->binary('image2');
             $table->binary('image3');
             $table->decimal('price',9,3);
-            $table->boolean('negotiable')->default(false)->nullable();
+            $table->boolean('negotiable')->default(true)->nullable();
             $table->timestamps();
 
 
