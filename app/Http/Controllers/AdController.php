@@ -44,18 +44,28 @@ class AdController extends Controller
     public function store(Request $request)
     {
 
+
+        //validation the input
+        $this->validate($request,
+        [
+          'item_name' => 'required',
+          'phone' => 'required|regex:/(01)[0-9]{9}/',
+
+        ]);
+
         $ad = New Ad;
 
 
        $ad->item_name = $request->input('item_name');
        $ad->phone    = $request->input('phone');
-       $ad->price   = $request->input('description');
+       $ad->description   = $request->input('description');
        $ad->negotiable = $request->input('negotiable');
        $ad->condition  = $request->input('condition');
        $ad->category_id = $request->input('category_id');
        $ad->region_id  = $request->input('region_id');
        $ad->price     = $request->input('price');
        $ad->user_id    = auth()->id();
+       $ad->approve    = $request->input('approve');
 
        // storing image1
        if($request->hasfile('image1')){
@@ -91,9 +101,11 @@ class AdController extends Controller
 
 
 
-         return $ad;
+        // return $ad;
 
-       // $ad->save();
+        $ad->save();
+
+        return redirect('home');
 
 
     }

@@ -23,10 +23,10 @@
                         <div class="col">
 
                                 <label for="inputState">Region</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Choose Region</option>
+                                <select id="inputState" class="form-control" name="region_id">
+                                    <option value="">Select Region</option>
                                     @foreach ($regions as $region)
-                                    <option name="region" value="{{ $region->id }}">{{ $region->name }}</option>
+                                    <option name="region_id" value="{{ $region->id }}">{{ $region->name }}</option>
                                   @endforeach
 
                                 </select>
@@ -38,10 +38,10 @@
                         <div class="col">
 
                                 <label for="inputState">Category</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Choose Category</option>
+                                <select id="inputState" class="form-control" name="category_id">
+                                    <option value="">Select Category</option>
                                     @foreach ($categories as $category)
-                                    <option name='category'value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option  value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
 
 
@@ -78,7 +78,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">Phone</label>
-                  <input name="phone" type="number" class="form-control" id="exampleInputPassword1" placeholder="Price">
+                  <input name="phone" type="number" class="form-control" id="exampleInputPassword1" placeholder="Phone">
                 </div>
 
 
@@ -110,7 +110,7 @@
 
                 <div class="form-group">
                         <label for="exampleFormControlTextarea1"> Description </label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                </div>
 
 

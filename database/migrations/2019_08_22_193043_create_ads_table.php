@@ -19,14 +19,15 @@ class CreateAdsTable extends Migration
             $table->string('item_name');
             $table->integer('category_id');
             $table->string('region_id');
-            $table->boolean('condition')->default(true)->nullable();
+            $table->boolean('condition')->default(false)->nullable();
             $table->integer('phone');
             $table->string('description');
             $table->binary('image1');
             $table->binary('image2');
             $table->binary('image3');
             $table->decimal('price',9,3);
-            $table->boolean('negotiable')->default(true)->nullable();
+            $table->boolean('negotiable')->default(false)->nullable();
+            $table->boolean('approve')->default(false)->nullable();
             $table->timestamps();
 
 
