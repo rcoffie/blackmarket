@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use Auth;
+use App\Ad;
+use App\Category;
+use App\Region;
+use session;
+use App\User;
+use Image;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $ads = Ad::whereUserId(auth()->user()->id)->get();
+        return view('home')->with('ads',$ads);
     }
 }

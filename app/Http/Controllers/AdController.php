@@ -46,12 +46,19 @@ class AdController extends Controller
 
 
         //validation the input
-        $this->validate($request,
+     /* $this->validate($request,
         [
           'item_name' => 'required',
           'phone' => 'required|regex:/(01)[0-9]{9}/',
+          'description' => 'required',
+          'category_id' => 'required',
+          'region_id'   => 'required',
+          'price'       => 'required | numeric',
+          'image1'      => 'required',
+          'image2'      => 'required',
+          'image3'      => 'required',
 
-        ]);
+        ]); */
 
         $ad = New Ad;
 
@@ -105,7 +112,7 @@ class AdController extends Controller
 
         $ad->save();
 
-        return redirect('home');
+        return redirect('home')->with('success','Your Add will be live after reviewed');
 
 
     }
