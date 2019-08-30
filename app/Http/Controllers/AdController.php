@@ -32,6 +32,7 @@ class AdController extends Controller
     {
         $categories = Category::all();
         $regions = Region::all();
+
         return view ('ad.create')->with('categories',$categories)->with('regions',$regions);
     }
 
@@ -46,19 +47,17 @@ class AdController extends Controller
 
 
         //validation the input
-     /* $this->validate($request,
-        [
-          'item_name' => 'required',
-          'phone' => 'required|regex:/(01)[0-9]{9}/',
-          'description' => 'required',
-          'category_id' => 'required',
-          'region_id'   => 'required',
-          'price'       => 'required | numeric',
-          'image1'      => 'required',
-          'image2'      => 'required',
-          'image3'      => 'required',
+        $this->validate($request,[
 
-        ]); */
+            'item_name'=> 'required|',
+            'phone'    => 'required|max:10|',
+            'description'=> 'required',
+            'region_id'   => 'required',
+            'price'       => 'required|',
+            'image1'      => 'required',
+            'image2'     => 'required',
+            'image3'     => 'required',
+        ]);
 
         $ad = New Ad;
 
@@ -136,7 +135,10 @@ class AdController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $regions = Region::all();
+        $ad      = Ad::findorfail($id);
+        return view ('ad.edit')->with('categories',$categories)->with('regions',$regions)->with('ad',$ad);
     }
 
     /**

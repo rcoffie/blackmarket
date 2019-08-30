@@ -31,7 +31,7 @@
                            @foreach ($ads as $ad)
 
                            <tr>
-                                <td> <a href="#"> <strong> {{ $ad->item_name }}  </strong>   </a>   </td>
+                                <td> <a href="{{ route('ad.edit',$ad->id) }}"> <strong> {{ $ad->item_name }}  </strong>   </a>   </td>
 
                                 <td> <button type="button" class="btn btn-danger">Delete</button> </td>
 
