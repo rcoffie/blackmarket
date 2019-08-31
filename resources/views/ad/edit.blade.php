@@ -23,10 +23,10 @@
                         <div class="col">
 
                                 <label for="inputState">Region</label>
-                                <select id="inputState" class="form-control  {{ $errors->has('region_id')?'is-invalid':'' }}" name="region_id">
+                                <select id="inputState" class="form-control  {{ $errors->has('region_id')?'is-invalid':'' }}" name="region_id" value="{{ $ad->region_name }}">
                                     <option value="">Select Region</option>
                                     @foreach ($regions as $region)
-                                    <option name="region_id" value="{{ $region->id }}">{{ $region->name }}</option>
+                                    <option name="region_id" value="{{ $ad->region_id }}">{{ $region->name }}</option>
                                   @endforeach
 
                                 </select>
@@ -38,10 +38,10 @@
                         <div class="col">
 
                                 <label for="inputState">Category</label>
-                                <select id="inputState" class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="category_id" value="$ad->category_id">
-                                    <option value="">Select Category</option>
+                                <select id="inputState" class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="category_id" value="{{ $ad->cateogry_id }}">
+                                    <option value="{{ $ad->category_id }}">Select Category</option>
                                     @foreach ($categories as $category)
-                                    <option  value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option name="category_id" value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
 
 

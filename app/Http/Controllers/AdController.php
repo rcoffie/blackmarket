@@ -54,9 +54,9 @@ class AdController extends Controller
             'description'=> 'required',
             'region_id'   => 'required',
             'price'       => 'required|',
-            'image1'      => 'required',
-            'image2'     => 'required',
-            'image3'     => 'required',
+            'image1'      => 'required |image',
+            'image2'     => 'required |image',
+            'image3'     => 'required |image',
         ]);
 
         $ad = New Ad;
