@@ -124,7 +124,9 @@ class AdController extends Controller
      */
     public function show($id)
     {
-        //
+        $ad = Ad::findOrfail($id);
+
+        return view('ad.show')->with('ad',$ad);
     }
 
     /**
@@ -136,6 +138,9 @@ class AdController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
+
+
+
         $regions = Region::all();
         $ad      = Ad::findorfail($id);
         return view ('ad.edit')->with('categories',$categories)->with('regions',$regions)->with('ad',$ad);

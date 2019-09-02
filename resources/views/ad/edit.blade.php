@@ -39,10 +39,10 @@
 
                                 <label for="inputState">Category</label>
                                 <select id="inputState" class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="category_id" value="{{ $ad->cateogry_id }}">
-                                    <option value="{{ $ad->category_id }}">Select Category</option>
-                                    @foreach ($categories as $category)
-                                    <option name="category_id" value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
+                                    <option value="">Select Category</option>
+
+                                    <option name="category_id" value=" {{ $ad->category_id }}">{{ $categories }}</option>
+
 
 
                                 </select>
