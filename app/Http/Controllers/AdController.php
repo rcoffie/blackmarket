@@ -20,7 +20,9 @@ class AdController extends Controller
      */
     public function index()
     {
-        //
+        $ad = Ad::where('approve', true)->count();
+        return view('ad.index')->with('ad',$ad);
+
     }
 
     /**

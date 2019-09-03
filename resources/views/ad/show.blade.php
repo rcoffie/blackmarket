@@ -5,10 +5,9 @@
 <div class="container">
 <div class="row">
 <div class="col-8">
-<div class="row">
 
-<div class="col-6">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:600px;height:500px;" >
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -16,13 +15,13 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ asset('images/'.$ad->image1) }}" alt="image1">
+                    <img class="d-block w-100" src="{{ asset('images/'.$ad->image1) }}" alt="image1" style="width:auto;height:500px;" >
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('images/'.$ad->image2) }}" alt="Second slide">
+                    <img class="d-block w-100" src="{{ asset('images/'.$ad->image2) }}" alt="Second slide" style="width:auto;height:500px;" >
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('images/'.$ad->image3) }}" alt="Third slide">
+                    <img class="d-block w-100" src="{{ asset('images/'.$ad->image3) }}" alt="Third slide" style="width:auto;height:500px;" >
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -34,28 +33,36 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div>
+
+
+
+
+              <h4 class=" text-primary m-2">   {{ $ad->item_name }}  </h4>
+
+                    <p> {{ $ad->description }}  </p>
+
+
+                   @if ($ad->negotiable != false)
+                     <span>Negotiable</span>
+                  @endif
+
+                  @if ($ad->condition == false)
+
+                  <span class=" p-2"> <strong>Condition: Used </strong> </span>
+
+                  @endif
+                   <div class="clearfix mt-2">
+                         <span class="float-left bg-success p-2 text-white"> GH₵ {{ $ad->price }}</span>
+                         <span class="float-right bg-success p-2 text-white"> {{ $ad->phone }} </span>
+                       </div>
+
+
+
+
+
+
 </div>
-
-<div class="col-6">
-     <h4 class=" text-primary">   {{ $ad->item_name }}  </h4>
-
-     <div class="card">
-            <div class="card-body">
-             {{ $ad->description }}
-            </div>
-          </div>
-          <div class="clearfix mt-2">
-                <span class="float-left bg-success p-2">{{ $ad->price }}</span>
-                <span class="float-right">  </span>
-              </div>
-
-</div>
-
-</div>
-
-
-</div>
-<div class="col-4">
+<div class="col-2">
 
 
 </div>
