@@ -20,8 +20,8 @@ class AdController extends Controller
      */
     public function index()
     {
-        $ad = Ad::where('approve', true)->count();
-        return view('ad.index')->with('ad',$ad);
+        $ads = Ad::all();
+        return view('ad.index')->with('ads',$ads);
 
     }
 
@@ -168,6 +168,9 @@ class AdController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Ad::findOrfail($id);
+
+        $ad->delete();
+        return redirect('home')->with('success','Your Ad has been deleted Successfully');
     }
 }

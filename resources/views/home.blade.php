@@ -33,7 +33,12 @@
                            <tr>
                                 <td> <a href="{{ route('ad.show',$ad->id) }}"> <strong> {{ $ad->item_name }}  </strong>   </a>   </td>
 
-                                <td> <button type="button" class="btn btn-danger">Delete</button> </td>
+                                <td>  <form method="POST"   onclick="return confirm('Are you sure?')" action="{{route('ad.destroy',$ad->id)}}">
+                                        @method('DELETE')
+                                        @csrf
+
+                                        <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>
+                                      </form></td>
 
                                 <td> @if ($ad->approve == false)
 
