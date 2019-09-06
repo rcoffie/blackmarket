@@ -42,13 +42,17 @@
 
                                 <td> @if ($ad->approve == false)
 
-                                <span class="badge badge-danger">not approved</span></td>
+                                <span class="badge badge-danger">not approved</span>
 
                                 @else
                                 <span class="badge badge-success">not approved</span></td>
                                 @endif
 
+                                <td> <a href="{{ route('ad.edit',$ad->id) }}"> <strong> Edit  </strong>   </a>   </td>
                               </tr>
+
+
+
 
 
                            @endforeach

@@ -143,9 +143,25 @@ class AdController extends Controller
 
 
 
+        $categories = collect([
+            ['id' => '$categories_id', 'name' =>'$categories_name'],
+
+        ]);
+
+
+        $categories = $categories->pluck('name');
+
+       $categories->all();
+
+
+
+
+
+
         $regions = Region::all();
         $ad      = Ad::findorfail($id);
-        return view ('ad.edit')->with('categories',$categories)->with('regions',$regions)->with('ad',$ad);
+        return $categories;
+       // return view  ('ad.edit')->with('categories',$categories)->with('regions',$regions)->with('ad',$ad);
     }
 
     /**
