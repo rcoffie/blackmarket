@@ -85,7 +85,7 @@
 
                 <div class="form-group">
                         <label for="exampleInputPassword1">Price</label>
-                        <input name="price" type="number" class="form-control  {{ $errors->has('price')?'is-invalid':'' }}"  placeholder="Price"  value="{{ old('price') }}">
+                        <input name="price" type="number" class="form-control  {{ $errors->has('price')?'is-invalid':'' }}" id="exampleInputPassword1" placeholder="Price"  value="{{ old('price') }}">
                 </div>
 
 

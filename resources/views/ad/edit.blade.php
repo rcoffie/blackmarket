@@ -38,17 +38,15 @@
                         <div class="col">
 
                                 <label for="inputState">Category</label>
-                                <select id="inputState" class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="category_id" value="{{ $ad->cateogry_id }}">
+                                <select data-live-search="true" data-live-search-style="startsWith"  class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="category_id" value="{{ old('category_id') }}">
                                     <option value="">Select Category</option>
-
-
-
-
-
-
+                                    @foreach ($categories as $category)
+                                    <option  value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
 
 
                                 </select>
+
 
                         </div>
                 </div>
