@@ -33,22 +33,31 @@
 
                         </div>
 
-
-
                         <div class="col">
 
                                 <label for="inputState">Category</label>
-                                <select data-live-search="true" data-live-search-style="startsWith"  class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="category_id" value="{{ old('category_id') }}">
+                                <select id="inputState" class="form-control {{ $errors->has('category_id')?'is-invalid':'' }} " name="categories[]">
                                     <option value="">Select Category</option>
                                     @foreach ($categories as $category)
-                                    <option  value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option  value="{{ $category->id }}"
+                                     @foreach ($ad->category_id as $adCategory)
+                                     @if ($adCategory->id  == $category->id)
+
+                                     selected
+
+                                     @endif
+
+                                     @endforeach
+
+                                    >{{ $category->name }}</option>
                                     @endforeach
 
 
                                 </select>
 
-
                         </div>
+
+
                 </div>
 
 

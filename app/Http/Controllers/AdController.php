@@ -139,9 +139,10 @@ class AdController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::all();
+
        $regions = Region::all();
         $ad      = Ad::findorfail($id);
+        $categories =category::all();
        /// return $categories;
        // return view  ('ad.edit')->with('categories',$categories)->with('regions',$regions)->with('ad',$ad);
         return view('ad.edit',compact('ad','categories','regions'));
