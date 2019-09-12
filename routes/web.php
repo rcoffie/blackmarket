@@ -21,3 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('ad', 'AdController');
 
+Route::resource('/category', 'CategoryController');
+
+Route::resource('/admin/region', 'RegionController');
+
+//Route::get('/admin/category', 'CategoryController@index');
+
