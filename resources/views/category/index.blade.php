@@ -31,6 +31,8 @@
                   <tr>
 
                     <th scope="col">Category Name</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Action</th>
 
                   </tr>
                 </thead>
@@ -39,6 +41,9 @@
                   @foreach ($categories as $category)
                        <tr>
                          <td>{{ $category->name }}</td>
+                         <td> <a href="{{ route('category.edit',$category->id) }}" class="btn btn-success " role="button" aria-disabled="true">Edit</a> </td>
+
+                         <td>Delete </td>
                         </tr>
                   @endforeach
 

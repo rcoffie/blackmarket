@@ -68,7 +68,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrfail($id);
+        return view ('category.edit')->with('category',$category);
     }
 
     /**
@@ -80,7 +81,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrfail($id);
+        $category->name = $request->input('name');
+        $category->save();
+        return redirect('category')->with('success','Updated Successfully');
     }
 
     /**
