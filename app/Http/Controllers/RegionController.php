@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Region;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        $regions = Region::all();
+        return view ('region.index')->with('regions',$regions);
     }
 
     /**
@@ -34,7 +36,15 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'  => 'required'
+        ]);
+        $region = new Region;
+        $region->name = $request->input('name');
+
+        $region->save();
+
+        return back()->with('success','Category Added ');
     }
 
     /**
@@ -56,7 +66,8 @@ class RegionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $region = Region::findOrfail($id);
+        return view ('region.edit')->with('region',$region);
     }
 
     /**
@@ -68,7 +79,10 @@ class RegionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $region = Region::findOrfail($id);
+        $region->name = $request->input('name');
+        $region->save();
+        return redirect('region')->with('success','Updated Successfully');
     }
 
     /**

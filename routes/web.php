@@ -23,7 +23,7 @@ Route::resource('ad', 'AdController');
 
 Route::resource('/category', 'CategoryController');
 
-Route::resource('/admin/region', 'RegionController');
+Route::resource('/region', 'RegionController');
 
 //Route::get('/admin/category', 'CategoryController@index');
 
