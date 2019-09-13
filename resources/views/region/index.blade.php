@@ -43,7 +43,16 @@
                          <td>{{ $region->name }}</td>
                          <td> <a href="{{ route('region.edit',$region->id) }}" class="btn btn-success " role="button" aria-disabled="true">Edit</a> </td>
 
-                         <td>Delete </td>
+                         <td>
+
+                                <form method="POST"   onclick="return confirm('Are you sure?')" action="{{route('region.destroy',$region->id)}}">
+                                        @method('DELETE')
+                                        @csrf
+
+                                        <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>
+                                      </form>
+
+                        </td>
                         </tr>
                   @endforeach
 

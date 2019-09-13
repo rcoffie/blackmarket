@@ -93,6 +93,8 @@ class RegionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $region = Region::findOrfail($id);
+        $region->delete();
+        return back()->with('success','Category Deleted ');
     }
 }

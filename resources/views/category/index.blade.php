@@ -43,7 +43,13 @@
                          <td>{{ $category->name }}</td>
                          <td> <a href="{{ route('category.edit',$category->id) }}" class="btn btn-success " role="button" aria-disabled="true">Edit</a> </td>
 
-                         <td>Delete </td>
+                         <td>   <form method="POST"   onclick="return confirm('Are you sure?')" action="{{route('category.destroy',$category->id)}}">
+                                @method('DELETE')
+                                @csrf
+
+                                <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>
+                              </form>
+                            </td>
                         </tr>
                   @endforeach
 
