@@ -11,6 +11,6 @@ class Category extends Model
         'id', 'name',
     ];
     public function ad(){
-        return $this->belongsTo('App\Ad');
+        return $this->belongsTo('Ad::class');
     }
 }

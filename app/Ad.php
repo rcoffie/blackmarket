@@ -17,11 +17,11 @@ class Ad extends Model
 
     public function category(){
 
-        return $this->hasOne('App\Category');
+        return $this->hasOne('Category::class');
     }
 
     public function region(){
 
-        return $this->hasOne('App\Region');
+        return $this->hasOne('Region::class');
     }
 }
